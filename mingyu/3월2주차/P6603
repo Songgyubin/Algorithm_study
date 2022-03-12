@@ -1,0 +1,44 @@
+import java.io.*;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class P6603 {
+    static int k;
+    static int[] s;
+    static boolean[] skip; //스킵 판별
+    public static void main(String[] args) throws IOException {
+
+        Scanner sc = new Scanner(System.in);
+
+        while(true){
+            k = sc.nextInt();
+            if(k == 0){
+                break;
+            }
+            s = new int[k];
+            skip = new boolean[k];
+            for(int i=0;i<k;i++){
+                s[i] = sc.nextInt();
+            }
+            Arrays.sort(s);
+            dfs(0,0);
+            System.out.println();
+        }
+    }
+    static void dfs(int line,int count) {
+
+        if(count == 6) {
+            for(int i = 0; i < k; i++) {
+                if(skip[i] == true)
+                    System.out.print(s[i] + " ");
+            }
+            System.out.println("");
+        }
+
+        for(int j = line; j < k; j++) {
+            skip[j] = true;
+            dfs(j+1, count+1);
+            skip[j] = false;
+        }
+    }
+}
