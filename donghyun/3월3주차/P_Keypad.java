@@ -77,7 +77,7 @@ class Soultion {
     }
 }
 
-public class Keypad {
+public class P_Keypad {
     public static void main(String[] args) {
         Soultion answers = new Soultion();
         int[] numbers = { 1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5 };
