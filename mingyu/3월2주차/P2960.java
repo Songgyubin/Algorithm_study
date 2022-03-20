@@ -1,0 +1,47 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class P2960 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int SIZE, K;
+        List<Integer> N = new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
+        SIZE = sc.nextInt();
+        K = sc.nextInt();
+        for(int i=2;i<=SIZE;i++){
+            N.add(i);
+        }
+        int P = N.get(0);
+        int n = P;
+        int i=0;
+        while(true){
+            if(N.size() == 0){
+                break;
+            }
+            if(i > N.size()){
+                i = 0;
+                P = N.get(i);
+                n = P;
+            }
+            if(result.size() > i){
+                for(int j=0;j<result.size();j++){
+                    if(result.get(j).equals(P)){
+                        P = P + n;
+                    }
+                }
+            }
+            if(N.size() > i){
+                if(N.get(i).equals(P)){
+                    int a = N.get(i);
+                    N.remove(i);
+                    result.add(a);
+                    P = P + n;
+                }
+            }
+            i++;
+        }
+        System.out.println(result.get(K-1));
+    }
+}
