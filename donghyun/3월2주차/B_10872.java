@@ -18,3 +18,4 @@ public class B_10872 {
 
     }
 }
+//factorial
