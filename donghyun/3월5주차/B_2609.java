@@ -21,9 +21,9 @@ public class B_2609 {
 
     public static int gcd(int a, int b) { // 유클리드 호제법, r은 a%b 값인데 a,b와 b,r은 공약수를 가진다.
         // 재귀 방식
-        if (b == 0) {
+        if (b == 0) { //재귀 탈출 조건 명시
             return a;
         }
-        return gcd(b, a % b);
+        return gcd(b, a % b); 
     }
 }
